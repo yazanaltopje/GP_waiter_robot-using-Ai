@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+ 
+  <link name="lidar_link">
+    <visual>
+      <geometry>
+        <cylinder radius="${lidar_radius}" length="${lidar_height}"/> <!-- Using properties for dimensions -->
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="black"/>
+    </visual>
+  </link>
+  <joint name="lidar_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_link"/>
+    <origin xyz="${lidar_offset_x} ${lidar_offset_y} ${lidar_offset_z}" rpy="0 0 0"/> <!-- Using properties for position -->
+  </joint>
+
+<gazebo reference="lidar_link">
+    <material> Gazebo/Black </material>
+</gazebo>
+
+
+</robot>

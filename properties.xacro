@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+                    
+  <!-- ################### Chassis ################### -->
+  <xacro:property name="chassis_length" value="0.225"/> <!-- Updated from previous box dimensions -->
+  <xacro:property name="chassis_width" value="0.3"/> <!-- Updated from previous box dimensions -->
+  <xacro:property name="chassis_height" value="0.11"/> <!-- Retained as it matches the original -->
+  <xacro:property name="chassis_mass" value="3.0"/> <!-- Mass remains unchanged -->
+
+  <!-- ################### Wheels ################### -->
+  <xacro:property name="wheel_offset_x" value="0"/> <!-- No forward/backward offset specified -->
+  <xacro:property name="wheel_offset_y" value="0.158"/> <!-- Updated from wheel joint positions -->
+  <xacro:property name="wheel_offset_z" value="0"/> <!-- Aligned with base_link -->
+  <xacro:property name="wheel_thickness" value="0.012"/> <!-- Matches cylinder length for wheels -->
+  <xacro:property name="wheel_radius" value="0.0325"/> <!-- Matches cylinder radius for wheels -->
+  <xacro:property name="wheel_mass" value="0.037"/> <!-- Mass remains unchanged -->
+
+  <!-- ################### Caster Wheel ################### -->
+  <xacro:property name="caster_wheel_radius" value="0.0125"/> <!-- Updated to match sphere radius -->
+  <xacro:property name="caster_wheel_mass" value="0.01"/> <!-- Mass remains unchanged -->
+  <xacro:property name="caster_wheel_offset_x" value="0.0925"/> <!-- Matches caster joint offset -->
+  <xacro:property name="caster_wheel_offset_z" value="-0.019"/> <!-- Matches caster joint offset -->
+
+  <!-- ################### LIDAR ################### -->
+  <xacro:property name="lidar_radius" value="0.0485"/> <!-- Diameter=97mm -->
+  <xacro:property name="lidar_height" value="0.06"/> <!-- Height=60mm -->
+  <xacro:property name="lidar_offset_x" value="0.05"/> <!-- X offset from base -->
+  <xacro:property name="lidar_offset_y" value="0.0"/> <!-- Y offset from base -->
+  <xacro:property name="lidar_offset_z" value="0.12"/> <!-- Z offset from base -->
+
+    <!-- ################### Camera ################### -->
+  <xacro:property name="camera_width" value="0.03"/> <!-- Camera width -->
+  <xacro:property name="camera_height" value="0.02"/> <!-- Camera height -->
+  <xacro:property name="camera_depth" value="0.03"/> <!-- Camera depth -->
+  <xacro:property name="camera_offset_x" value="0.118"/> <!-- X offset from base -->
+  <xacro:property name="camera_offset_y" value="0.0"/> <!-- Y offset from base -->
+  <xacro:property name="camera_offset_z" value="0.08"/> <!-- Z offset from base -->
+
+                                <!-- Colors -->    
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+
+    <material name="green">
+        <color rgba="0 1 0 1"/>
+    </material>
+
+    <material name="blue">
+        <color rgba="0 0 1 1"/>
+    </material>
+
+    <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+
+    <material name="orange">
+        <color rgba="0.8 0.4 0.0 1.0"/> <!-- Orange -->
+    </material>
+</robot>

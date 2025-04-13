@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<!-- ################### LEFT WHEEL ################### -->
+<link name="wheel_left">
+  <visual>
+    <geometry>
+      <cylinder radius="${wheel_radius}" length="${wheel_thickness}"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <geometry>
+      <cylinder radius="${wheel_radius}" length="${wheel_thickness}"/>
+    </geometry>
+  </collision>
+  <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}" radius="${wheel_radius}">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:inertial_cylinder>
+</link>
+
+<joint name="wheel_left_joint" type="continuous">
+  <parent link="base_link"/>
+  <child link="wheel_left"/>
+  <origin xyz="${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="${-pi/2} 0 0"/>
+  <axis xyz="0 0 1"/>
+  <dynamics damping="0.1" friction="0.1"/>
+</joint>
+
+<gazebo reference="wheel_left">
+  <material>Gazebo/Black</material>
+  <mu1>1.0</mu1>
+  <mu2>1.0</mu2>
+  <kp>1000000.0</kp>
+  <kd>100.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>1.0</maxVel>
+</gazebo>
+
+<!-- ################### RIGHT WHEEL ################### -->
+<link name="wheel_right">
+  <visual>
+    <geometry>
+      <cylinder radius="${wheel_radius}" length="${wheel_thickness}"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <geometry>
+      <cylinder radius="${wheel_radius}" length="${wheel_thickness}"/>
+    </geometry>
+  </collision>
+  <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}" radius="${wheel_radius}">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:inertial_cylinder>
+</link>
+
+<joint name="wheel_right_joint" type="continuous">
+  <parent link="base_link"/>
+  <child link="wheel_right"/>
+  <origin xyz="${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="${-pi/2} 0 0"/>
+  <axis xyz="0 0 1"/>
+  <dynamics damping="0.1" friction="0.1"/>
+</joint>
+
+<gazebo reference="wheel_right">
+  <material>Gazebo/Black</material>
+  <mu1>1.0</mu1>
+  <mu2>1.0</mu2>
+  <kp>1000000.0</kp>
+  <kd>100.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>1.0</maxVel>
+</gazebo>
+</robot>
